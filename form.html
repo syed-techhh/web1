@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validations</title>
+
+    <script>
+        function validateForm() {
+            
+
+            let name = document.getElementById("name");
+            let email = document.getElementById("email");
+            let password = document.getElementById("password");
+            let confirmPassword = document.getElementById("confirmPassword");
+            let errorDiv = document.getElementById("errorMessages");
+            let errorMessage = "";
+
+            if (name === "") {
+                errorMessage += "Name is required.<br>";
+            }
+
+
+            if (password.length < 6) {
+                errorMessage += "Password must be at least 6 characters long.<br>";
+            }
+
+            if (password !== confirmPassword) {
+                errorMessage += "Passwords do not match.<br>";
+            }
+
+            if (errorMessage) {
+                errorDiv.innerHTML = errorMessage;
+                errorDiv.style.display = "block";
+            } else {
+                errorDiv.style.display = "none";
+                alert("Form submitted successfully!");
+            }
+        }
+    </script>
+</head>
+<body>
+   
+        <h2>Registration Form</h2>
+
+        <div id="errorMessages" class="error"></div>
+        <form onsubmit="validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name"><br><br>.
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password">
+
+            <label>confirmPassword:</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm your password">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
